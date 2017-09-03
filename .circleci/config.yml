@@ -1,0 +1,33 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/just-items
+    docker:
+      - image: circleci/node:latest-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Download Latest Firefox
+          command: "[ -d ~/firefox ] || ( wget -O ~/ff-latest.tar.bz2 'https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US' && tar xjf ~/ff-latest.tar.bz2 -C ~/ )"
+      - run: 
+          name: Link Firefox
+          command: sudo ln -sf ~/firefox/firefox /usr/bin/firefox
+      - run:
+          name: Install Yarn
+          command: 'sudo curl -o- -L https://yarnpkg.com/install.sh | bash'
+      - run:
+          name: Install packages
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+            - ~/firefox
+            - ~/.npm
+            - ~/.yarn-cache
+            - ~/.cache
+      - run:
+          name: Run tests
+          command: node_modules/ember-cli/bin/ember test
