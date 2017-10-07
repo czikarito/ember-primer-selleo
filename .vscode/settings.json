@@ -1,7 +1,7 @@
 {
   "eslint.autoFixOnSave": false,
   "editor.tabSize": 2,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "files.autoSave": "onWindowChange",
   "vsicons.presets.tsOfficial": true,
   "vsicons.presets.hideFolders": true,

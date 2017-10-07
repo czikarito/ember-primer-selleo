@@ -1,0 +1,5 @@
+<ul class="list measure center">
+  {{#each items as |item|}}
+    {{item-element thing=item onClick=(action 'archive' item)}}
+  {{/each}}
+</ul>
