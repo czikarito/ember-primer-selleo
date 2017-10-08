@@ -1,8 +1,10 @@
-{{items-filter onChange=(action (mut query))}} 
-{{items-form}}
-<div class="list measure center">
+<div class="fl w-50">
+  {{items-form}}
+  {{items-filter onChange=(action (mut query))}} 
+
   <button {{action 'toggleSort'}}>Sort By Name: {{nameSort}}</button>
   {{items-list items=itemsSorted}}
 </div>
-
-{{outlet}}
+<div class="fl w-50">
+  {{outlet}}
+</div>

@@ -11,28 +11,36 @@ export default Ember.Service.extend({
     this[collection].pushObject(element);
   },
 
+  find(collection, id) {
+   return this[collection].find(el => el.id == id)
+  },
+
   allCategories: mapBy('model', 'category'),
   categories: uniq('allCategories'),
   items: [
     {
+      id: 1,
       name: 'Unibike Xenon Bike',
       category: 'Sports & Outdoors',
       imageUrl: 'http://tachyons.io/img/avatar-mrmrs.jpg',
       since: '2014-08-30',
     },
     {
+      id: 2,
       name: 'Sony XZ Phone',
       category: 'Personal Electronic',
       imageUrl: 'http://tachyons.io/img/avatar-jxnblk.jpg',
       since: '2017-06-20',
     },
     {
+      id: 3,
       name: 'Wash Machine',
       category: 'Appliances',
       imageUrl: 'http://tachyons.io/img/avatar-jasonli.jpg',
       since: '2010-04-01',
     },
     {
+      id:4,
       name: 'Dodge Viper',
       category: 'Cars',
       imageUrl:
