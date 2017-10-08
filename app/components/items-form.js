@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['list measure center ba pa2'],
+  db: Ember.inject.service(),
+  categories: Ember.computed.alias('db.categories'),
 
   _resetForm() {
     this.setProperties({
@@ -15,8 +17,8 @@ export default Ember.Component.extend({
   actions: {
     addItem() {
       let item = this.getProperties('name', 'category', 'imageUrl', 'since');
-      console.log(item);
-      this.get('onSubmit')(item);
+      
+      this.get('db').add('items', item)
       this._resetForm();
     },
   },
