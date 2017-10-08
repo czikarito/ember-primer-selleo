@@ -1,4 +1,5 @@
 {{items-filter onChange=(action (mut query))}} 
-{{items-form onSubmit=(action 'add')}}
+{{items-form categories=categories onSubmit=(action 'add')}}
 
-{{items-list items=itemsFiltered}}
+<button {{action 'toggleSort'}}>Sort By Name: {{nameSort}}</button>
+{{items-list items=itemsSorted}}
