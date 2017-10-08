@@ -4,10 +4,6 @@ const { computed: { sort, uniq, mapBy }, computed } = Ember;
 export default Ember.Controller.extend({
   nameSort: 'asc',
   itemsSorted: sort('itemsFiltered', 'itemsSort'),
-  db: Ember.inject.service(),
-  model: computed(function(){
-    return this.get('db').all('items');
-  }),
 
   itemsSort: computed('nameSort', function() {
     return [`name:${this.get('nameSort')}`]
