@@ -23,9 +23,15 @@ export default Ember.Service.extend({
   },
 
   find(collection, id) {
-    return new Promise((resolve) => {
-      later(() => resolve(this[collection].find(el => el.id == id)), 1500)
-    })
+    let element = this[collection].find(el => el.id == id);
+    if (element) {
+      return new Promise((resolve) => {
+        later(() => resolve(this[collection].find(el => el.id == id)), 1500)
+      })
+    } else {
+      return Promise.reject({ error: 'not found' });
+    }
+
   },
 
   allCategories: mapBy('model', 'category'),

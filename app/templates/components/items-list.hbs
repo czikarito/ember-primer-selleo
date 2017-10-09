@@ -1,6 +1,6 @@
 <ul class="list measure center">
   {{#each items as |item|}}
-    {{#link-to "items.item" item}}
+    {{#link-to "items.item" item.id}}
       {{item-element thing=item}}
     {{/link-to}}
   {{/each}}
