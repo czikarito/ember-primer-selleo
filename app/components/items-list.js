@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import { set } from '@ember/object';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   actions: {
     archive(item) {
-      Ember.set(item, 'archive', true);
+      set(item, 'archive', true);
     },
   }
 });

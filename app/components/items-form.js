@@ -1,9 +1,11 @@
-import Ember from 'ember';
+import { alias } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ['list measure center ba pa2'],
-  db: Ember.inject.service(),
-  categories: Ember.computed.alias('db.categories'),
+  db: service(),
+  categories: alias('db.categories'),
 
   _resetForm() {
     this.setProperties({

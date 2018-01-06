@@ -1,7 +1,8 @@
-import Ember from 'ember';
-const { computed: { sort, uniq, mapBy }, computed } = Ember;
+import Controller from '@ember/controller';
+import { mapBy, uniq, sort } from '@ember/object/computed';
+import { computed } from '@ember/object';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   queryParams: ['query'],
   query: '',
   nameSort: 'asc',
