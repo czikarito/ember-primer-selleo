@@ -33,7 +33,7 @@ export default Service.extend({
 
   },
 
-  allCategories: mapBy('model', 'category'),
+  allCategories: mapBy('items', 'category'),
   categories: uniq('allCategories'),
 
   events: [
