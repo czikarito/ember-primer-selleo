@@ -2,6 +2,8 @@ import Ember from 'ember';
 const { computed: { sort, uniq, mapBy }, computed } = Ember;
 
 export default Ember.Controller.extend({
+  queryParams: ['query'],
+  query: '',
   nameSort: 'asc',
   itemsSorted: sort('itemsFiltered', 'itemsSort'),
 

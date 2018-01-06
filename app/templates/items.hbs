@@ -1,5 +1,5 @@
 <div class="fl w-50">
-  {{items-filter onChange=(action (mut query))}} 
+  {{items-filter searchText=(readonly query) onChange=(action (mut query))}}
 
   <button {{action 'toggleSort'}}>Sort By Name: {{nameSort}}</button>
   {{items-list items=itemsSorted}}
