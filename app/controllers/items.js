@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
-import { mapBy, uniq, sort } from '@ember/object/computed';
+import { sort } from '@ember/object/computed';
 import { computed } from '@ember/object';
 
 export default Controller.extend({

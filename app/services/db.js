@@ -42,7 +42,7 @@ export default Service.extend({
       title: 'rysa na lusterku',
       item_id: 4
     },
-    { 
+    {
       id: 2,
       title: 'przebita opona',
       item_id: 1
@@ -79,5 +79,4 @@ export default Service.extend({
       since: '2017-06-01',
     },
   ],
-  
 });
