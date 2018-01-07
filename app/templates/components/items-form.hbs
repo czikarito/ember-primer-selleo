@@ -1,19 +1,18 @@
 <h3>New Item</h3>
-{{x-form/input name label="Name"}}
 
-{{#x-form/input category label="Category"}}
-  <span>{{categories}}</span>
-{{/x-form/input}}
+{{#x-form as |f|}}
+  {{f.input name label="Name"}}
+  {{#f.input category label="Category"}}
+    <span>{{categories}}</span>
+  {{/f.input}}
+  {{f.input picture label="Picture"}}
+  {{f.date since label="Since"}}
 
-{{x-form/input picture label="Picture"}}
+  {{#f.buttons as |bf|}}
+    {{bf.button "Add Item" click=(action 'addItem')}}
+    {{bf.button "Clear form" click=(action 'clearForm')}}
+  {{/f.buttons}}
+{{/x-form}}
 
-{{x-form/date since label="Since"}}
-
-{{!-- <label class="f6 b db mb2">Since</label> {{input value=since class="input-reset ba b--black-20 pa2 mb2 db" type="date"}} --}}
-
-{{#x-form/buttons}}
-  {{x-form/button "Add Item" click=(action 'addItem')}}
-  {{x-form/button "Clear form" click=(action 'clearForm')}}
-{{/x-form/buttons}}
 
 
