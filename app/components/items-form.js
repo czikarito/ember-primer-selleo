@@ -19,8 +19,12 @@ export default Component.extend({
   actions: {
     addItem() {
       let item = this.getProperties('name', 'category', 'imageUrl', 'since');
-      
+
       this.get('db').add('items', item)
+      this._resetForm();
+    },
+
+    clearForm() {
       this._resetForm();
     },
   },
